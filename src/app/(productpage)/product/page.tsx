@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Product } from "@prisma/client";
-import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
 // import { useRouter } from "next/router"
 
@@ -29,7 +28,6 @@ export default function CreateProduct() {
     const createProduct = trpc.addProduct.useMutation();
     const router = useRouter();
     const [productImages, setProductImages] = useState<string[]>([]); // Store multiple images
-    const [productRecord, setProductRecord] = useState<Product | null>(null);; // Store multiple
     const [formData, setFormData] = useState<FormData>({
         name: '',
         category: '',
@@ -84,7 +82,6 @@ export default function CreateProduct() {
         try {
             const createdProduct = await createProduct.mutateAsync(updatedFormData);
             console.log(createdProduct);
-            setProductRecord(createdProduct);
             toast.success('Product created successfully!');
             // Reset form data and images after successful submission
             setFormData({
