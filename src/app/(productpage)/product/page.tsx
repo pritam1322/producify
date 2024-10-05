@@ -288,7 +288,7 @@ export default function CreateProduct() {
 
                 {/* Owner's Contact Email */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="ownerEmail" className="text-lg font-medium text-gray-700">Owner's Contact Email:</label>
+                    <label htmlFor="ownerEmail" className="text-lg font-medium text-gray-700">Owner&apos;s Contact Email:</label>
                     <input
                         type="email"
                         id="ownerEmail"
@@ -303,7 +303,7 @@ export default function CreateProduct() {
 
                 {/* Owner's Instagram */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="instagram" className="text-lg font-medium text-gray-700">Owner's Instagram:</label>
+                    <label htmlFor="instagram" className="text-lg font-medium text-gray-700">Owner&apos;s Instagram:</label>
                     <input
                         type="url"
                         id="instagram"
