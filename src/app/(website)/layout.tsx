@@ -1,4 +1,3 @@
-import { Provider } from "@/lib/reactQuery-provider";
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import { Toaster } from "react-hot-toast";
