@@ -1,9 +1,8 @@
 'use client'; // Enables client-side rendering
 
-import { useEffect, useState } from "react";
 import { faBolt, faCartShopping, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 
