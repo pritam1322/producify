@@ -1,7 +1,6 @@
 "use client";
 
 import "./globals.css";
-import { trpc } from "@/utils/trpc";
 import { Provider } from "@/lib/reactQuery-provider";
 import { Toaster } from "react-hot-toast";
 import { CartProvider } from "./context/CartContext";
