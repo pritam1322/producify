@@ -6,7 +6,6 @@ import { trpc } from "@/trpc-client/client";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Product } from "@prisma/client";
 import BackButton from "@/app/components/BackButton";
 // import { useRouter } from "next/router"
 
