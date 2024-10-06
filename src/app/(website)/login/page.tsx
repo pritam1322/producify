@@ -1,5 +1,6 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import LoginButton from "@/app/components/LoginButton";
+import authOptions from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
