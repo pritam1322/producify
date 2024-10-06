@@ -1,12 +1,12 @@
 "use client";
 import { trpc } from "@/trpc-client/client";
-import React from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import React, { Suspense } from 'react';
 
-export default function ProductPage() {
+const ProductPage = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
 
@@ -72,28 +72,36 @@ export default function ProductPage() {
                 </div>
             </div>
             <div className="flex gap-4">
-                {product.images.length === 2 && (
-                <Image
-                    src={product.images[1] || "/placeholder.jpg"}
-                    alt={product.name}
-                    width={100}
-                    height={100}
-                    className="object-cover rounded-lg shadow-lg my-4"
-                />
+                {product.images.length >= 2 && (
+                    <Image
+                        src={product.images[1] || "/placeholder.jpg"}
+                        alt={product.name}
+                        width={100}
+                        height={100}
+                        className="object-cover rounded-lg shadow-lg my-4"
+                    />
                 )}
-                {product.images.length === 3 && (
-                <Image
-                    src={product.images[2] || "/placeholder.jpg"}
-                    alt={product.name}
-                    width={100}
-                    height={100}
-                    className="object-cover rounded-lg shadow-lg my-4"
-                />
+                {product.images.length >= 3 && (
+                    <Image
+                        src={product.images[2] || "/placeholder.jpg"}
+                        alt={product.name}
+                        width={100}
+                        height={100}
+                        className="object-cover rounded-lg shadow-lg my-4"
+                    />
                 )}
             </div>
             <div className="text-center text-gray-500 mt-8">
                 <Link href={'/'} className="pb-2 border-b border-gray-500">Back to Home Page</Link>
             </div>
         </section>
+    );
+};
+
+export default function ViewProductPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProductPage />
+        </Suspense>
     );
 }
