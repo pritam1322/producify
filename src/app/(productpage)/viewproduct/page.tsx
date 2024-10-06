@@ -72,6 +72,7 @@ export default function ProductPage() {
                 </div>
             </div>
             <div className="flex gap-4">
+                {product.images.length === 2 && (
                 <Image
                     src={product.images[1] || "/placeholder.jpg"}
                     alt={product.name}
@@ -79,6 +80,8 @@ export default function ProductPage() {
                     height={100}
                     className="object-cover rounded-lg shadow-lg my-4"
                 />
+                )}
+                {product.images.length === 3 && (
                 <Image
                     src={product.images[2] || "/placeholder.jpg"}
                     alt={product.name}
@@ -86,6 +89,7 @@ export default function ProductPage() {
                     height={100}
                     className="object-cover rounded-lg shadow-lg my-4"
                 />
+                )}
             </div>
             <div className="text-center text-gray-500 mt-8">
                 <Link href={'/'} className="pb-2 border-b border-gray-500">Back to Home Page</Link>

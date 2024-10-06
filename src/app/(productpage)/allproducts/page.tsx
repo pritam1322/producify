@@ -11,10 +11,14 @@ import BackButton from "@/app/components/BackButton";
 // Import the useCart hook
 
 interface Product {
-    id: string;
+    id: number;
     name: string;
     price: number;
     images: string[];
+}
+
+interface CartItem extends Product {
+    quantity: number;
 }
 
 export default function AllProductsPage() {
@@ -22,7 +26,11 @@ export default function AllProductsPage() {
     const { addToCart } = useCart(); // Access the cart context
 
     const handleAddToCart = (product: Product) => {
-        addToCart(product);
+        const cartItem: CartItem = {
+            ...product,
+            quantity: 1, // Add quantity field here
+        };
+        addToCart(cartItem);
         toast.success(`${product.name} has been added to your cart!`);
     };
 
