@@ -6,8 +6,6 @@ import { trpc } from "@/trpc-client/client";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Product } from "@prisma/client";
-import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
 // import { useRouter } from "next/router"
 
@@ -29,7 +27,6 @@ export default function CreateProduct() {
     const createProduct = trpc.addProduct.useMutation();
     const router = useRouter();
     const [productImages, setProductImages] = useState<string[]>([]); // Store multiple images
-    const [productRecord, setProductRecord] = useState<Product | null>(null);; // Store multiple
     const [formData, setFormData] = useState<FormData>({
         name: '',
         category: '',
@@ -84,7 +81,6 @@ export default function CreateProduct() {
         try {
             const createdProduct = await createProduct.mutateAsync(updatedFormData);
             console.log(createdProduct);
-            setProductRecord(createdProduct);
             toast.success('Product created successfully!');
             // Reset form data and images after successful submission
             setFormData({
@@ -292,7 +288,7 @@ export default function CreateProduct() {
 
                 {/* Owner's Contact Email */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="ownerEmail" className="text-lg font-medium text-gray-700">Owner's Contact Email:</label>
+                    <label htmlFor="ownerEmail" className="text-lg font-medium text-gray-700">Owner&apos;s Contact Email:</label>
                     <input
                         type="email"
                         id="ownerEmail"
@@ -307,7 +303,7 @@ export default function CreateProduct() {
 
                 {/* Owner's Instagram */}
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="instagram" className="text-lg font-medium text-gray-700">Owner's Instagram:</label>
+                    <label htmlFor="instagram" className="text-lg font-medium text-gray-700">Owner&apos;s Instagram:</label>
                     <input
                         type="url"
                         id="instagram"

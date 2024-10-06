@@ -10,11 +10,18 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import BackButton from "@/app/components/BackButton";
 // Import the useCart hook
 
+interface Product {
+    id: string;
+    name: string;
+    price: number;
+    images: string[];
+}
+
 export default function AllProductsPage() {
     const { data: products, isLoading, error } = trpc.getAllProducts.useQuery();
     const { addToCart } = useCart(); // Access the cart context
 
-    const handleAddToCart = (product: any) => {
+    const handleAddToCart = (product: Product) => {
         addToCart(product);
         toast.success(`${product.name} has been added to your cart!`);
     };
